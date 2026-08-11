@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package org.springframework.samples.petclinic.owner;
+import org.springframework.samples.petclinic.vet.VetController;
 
 import java.util.Optional;
 
