@@ -66,3 +66,5 @@ public class Visit extends BaseEntity {
 	}
 
 }
+
+// touch: doc note
