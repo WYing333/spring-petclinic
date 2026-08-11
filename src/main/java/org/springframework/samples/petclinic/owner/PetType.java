@@ -28,3 +28,5 @@ import jakarta.persistence.Table;
 public class PetType extends NamedEntity {
 
 }
+
+// touch: doc note
