@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package org.springframework.samples.petclinic.vet;
+import org.springframework.samples.petclinic.owner.OwnerController;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
