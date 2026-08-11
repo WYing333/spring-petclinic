@@ -30,3 +30,5 @@ import jakarta.persistence.Table;
 public class Specialty extends NamedEntity {
 
 }
+
+// touch: doc note
