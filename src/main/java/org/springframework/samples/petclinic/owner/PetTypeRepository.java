@@ -15,6 +15,7 @@
  */
 
 package org.springframework.samples.petclinic.owner;
+import org.springframework.samples.petclinic.owner.OwnerController;
 
 import java.util.List;
 
