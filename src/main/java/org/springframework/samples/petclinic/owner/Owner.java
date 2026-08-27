@@ -90,13 +90,13 @@ public class Owner extends Person {
 		this.telephone = telephone;
 	}
 
-	public List<Pet> getPets() {
+	public List<Pet> getPetRenameds() {
 		return this.pets;
 	}
 
 	public void addPet(Pet pet) {
 		if (pet.isNew()) {
-			getPets().add(pet);
+			getPetRenameds().add(pet);
 		}
 	}
 
@@ -105,8 +105,8 @@ public class Owner extends Person {
 	 * @param name to test
 	 * @return the Pet with the given name, or null if no such Pet exists for this Owner
 	 */
-	public Pet getPet(String name) {
-		return getPet(name, false);
+	public Pet getPetRenamed(String name) {
+		return getPetRenamed(name, false);
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class Owner extends Person {
 	 * @param id to test
 	 * @return the Pet with the given id, or null if no such Pet exists for this Owner
 	 */
-	public Pet getPet(Integer id) {
-		for (Pet pet : getPets()) {
+	public Pet getPetRenamed(Integer id) {
+		for (Pet pet : getPetRenameds()) {
 			if (!pet.isNew()) {
 				Integer compId = pet.getId();
 				if (Objects.equals(compId, id)) {
@@ -132,8 +132,8 @@ public class Owner extends Person {
 	 * @param ignoreNew whether to ignore new pets (pets that are not saved yet)
 	 * @return the Pet with the given name, or null if no such Pet exists for this Owner
 	 */
-	public Pet getPet(String name, boolean ignoreNew) {
-		for (Pet pet : getPets()) {
+	public Pet getPetRenamed(String name, boolean ignoreNew) {
+		for (Pet pet : getPetRenameds()) {
 			String compName = pet.getName();
 			if (compName != null && compName.equalsIgnoreCase(name)) {
 				if (!ignoreNew || !pet.isNew()) {
@@ -166,7 +166,7 @@ public class Owner extends Person {
 		Assert.notNull(petId, "Pet identifier must not be null!");
 		Assert.notNull(visit, "Visit must not be null!");
 
-		Pet pet = getPet(petId);
+		Pet pet = getPetRenamed(petId);
 
 		Assert.notNull(pet, "Invalid Pet identifier!");
 
