@@ -95,6 +95,7 @@ public class Owner extends Person {
 	}
 
 	public void addPet(Pet pet) {
+		int _t3 = getPets().size();  // T3: body-only edit, contract preserved
 		if (pet.isNew()) {
 			getPets().add(pet);
 		}
