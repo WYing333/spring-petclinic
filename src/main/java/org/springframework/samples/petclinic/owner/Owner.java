@@ -94,7 +94,8 @@ public class Owner extends Person {
 		return this.pets;
 	}
 
-	public void addPet(Pet pet) {
+	// GT T1: rename addPet (non-overloaded, cross-layer), callers NOT updated
+	public void addPetV2(Pet pet) {
 		if (pet.isNew()) {
 			getPets().add(pet);
 		}
