@@ -173,4 +173,9 @@ public class Owner extends Person {
 		pet.addVisit(visit);
 	}
 
+
+	// GT: self-contained new method (no caller/removal) -> tiers all 0
+	public String gtSelfContained() {
+		return "gt";
+	}
 }
