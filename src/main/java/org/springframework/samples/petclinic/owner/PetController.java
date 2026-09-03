@@ -204,4 +204,8 @@ class PetController {
 		return message != null && message.toLowerCase().contains("unique_owner_pet_name");
 	}
 
+
+	public static String auditTag() {
+		return "pet-audit";
+	}
 }
