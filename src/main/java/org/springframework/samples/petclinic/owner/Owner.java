@@ -173,4 +173,8 @@ public class Owner extends Person {
 		pet.addVisit(visit);
 	}
 
+
+	public String probeTag() {
+		return "probe";
+	}
 }
