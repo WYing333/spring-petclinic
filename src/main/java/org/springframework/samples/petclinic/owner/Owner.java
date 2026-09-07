@@ -174,7 +174,7 @@ public class Owner extends Person {
 	}
 
 
-	public String probeTag() {
+	public String probeTagRenamed() {
 		return "probe";
 	}
 }
