@@ -67,7 +67,7 @@ class VisitController {
 		Owner owner = optionalOwner.orElseThrow(() -> new IllegalArgumentException(
 				"Owner not found with id: " + ownerId + ". Please ensure the ID is correct "));
 
-		Pet pet = owner.getPet(petId);
+		Pet pet = owner.getPetRenamed(petId);
 		if (pet == null) {
 			throw new IllegalArgumentException(
 					"Pet with id " + petId + " not found for owner with id " + ownerId + ".");

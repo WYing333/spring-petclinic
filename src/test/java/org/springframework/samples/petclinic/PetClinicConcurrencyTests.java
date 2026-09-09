@@ -44,11 +44,11 @@ public class PetClinicConcurrencyTests {
 		assertThat(initialOwnerOpt).isPresent();
 		Owner owner = initialOwnerOpt.get();
 
-		int initialPetCount = owner.getPets().size();
+		int initialPetCount = owner.getPetRenameds().size();
 		String duplicatePetName = "ConcurrencyTestPet";
 
 		// Ensure duplicate pet name does not exist yet
-		assertThat(owner.getPet(duplicatePetName)).isNull();
+		assertThat(owner.getPetRenamed(duplicatePetName)).isNull();
 
 		RestTemplate template = restTemplateBuilder.baseUri("http://localhost:" + port).build();
 
@@ -112,7 +112,7 @@ public class PetClinicConcurrencyTests {
 		}
 
 		Owner updatedOwner = ownerRepository.findById(ownerId).get();
-		int newPetCount = updatedOwner.getPets().size();
+		int newPetCount = updatedOwner.getPetRenameds().size();
 
 		System.out.println("--- Concurrency Test Assertions ---");
 		System.out.println("Successful additions: " + successCount.get());
@@ -124,7 +124,7 @@ public class PetClinicConcurrencyTests {
 		assertThat(successCount.get()).isEqualTo(1);
 		assertThat(newPetCount).isEqualTo(initialPetCount + 1);
 
-		long countWithDuplicateName = updatedOwner.getPets()
+		long countWithDuplicateName = updatedOwner.getPetRenameds()
 			.stream()
 			.filter(p -> duplicatePetName.equalsIgnoreCase(p.getName()))
 			.count();

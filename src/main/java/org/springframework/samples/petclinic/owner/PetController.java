@@ -83,7 +83,7 @@ class PetController {
 		Optional<Owner> optionalOwner = this.owners.findById(ownerId);
 		Owner owner = optionalOwner.orElseThrow(() -> new IllegalArgumentException(
 				"Owner not found with id: " + ownerId + ". Please ensure the ID is correct "));
-		return owner.getPet(petId);
+		return owner.getPetRenamed(petId);
 	}
 
 	@InitBinder("owner")
@@ -108,7 +108,7 @@ class PetController {
 	public String processCreationForm(Owner owner, @Valid Pet pet, BindingResult result,
 			RedirectAttributes redirectAttributes) {
 
-		if (StringUtils.hasText(pet.getName()) && pet.isNew() && owner.getPet(pet.getName(), true) != null) {
+		if (StringUtils.hasText(pet.getName()) && pet.isNew() && owner.getPetRenamed(pet.getName(), true) != null) {
 			result.rejectValue("name", "duplicate", "already exists");
 		}
 
@@ -149,7 +149,7 @@ class PetController {
 
 		// checking if the pet name already exists for the owner
 		if (StringUtils.hasText(petName)) {
-			Pet existingPet = owner.getPet(petName, false);
+			Pet existingPet = owner.getPetRenamed(petName, false);
 			if (existingPet != null && !Objects.equals(existingPet.getId(), pet.getId())) {
 				result.rejectValue("name", "duplicate", "already exists");
 			}
@@ -186,7 +186,7 @@ class PetController {
 	private void updatePetDetails(Owner owner, Pet pet) {
 		Integer id = pet.getId();
 		Assert.state(id != null, "'pet.getId()' must not be null");
-		Pet existingPet = owner.getPet(id);
+		Pet existingPet = owner.getPetRenamed(id);
 		if (existingPet != null) {
 			// Update existing pet's properties
 			existingPet.setName(pet.getName());
